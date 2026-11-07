@@ -63,6 +63,13 @@ specs/        una spec por tarea (ver specs/_plantilla.md)
 9. Toda spec de UI referencia su pantalla en `design/`. Sin pantalla, no se implementa UI nueva.
 10. Si algo es ambiguo, elige la lectura más probable y anótala en la spec bajo "Decisiones".
 
+## Principios de trabajo
+Adaptados de [karpathy-guidelines](https://github.com/multica-ai/andrej-karpathy-skills) (MIT). Priorizan cuidado sobre velocidad; en tareas triviales, usa el criterio.
+1. **Piensa antes de programar.** Escribe tus supuestos. Si existe una vía más simple, dilo. Si algo no está claro, nómbralo; si aun así es ambiguo, aplica la regla 10 y anota en la spec la alternativa descartada.
+2. **Simplicidad primero.** El mínimo código que cumple la spec. Sin funciones, abstracciones ni "configurabilidad" que nadie pidió. Si 200 líneas pueden ser 50, reescribe.
+3. **Cambios quirúrgicos.** Cada línea cambiada debe responder a la spec. No "mejores" código, comentarios ni formato vecinos; respeta el estilo existente. Si ves código muerto ajeno, menciónalo, no lo borres. Sí elimina lo que tu propio cambio dejó sin uso.
+4. **Criterios verificables.** Convierte la tarea en comprobaciones (prueba que falla y luego pasa, captura que coincide con `design/`). En tareas de varios pasos, escribe el plan como `paso → verificación` y no des por terminado hasta comprobarlo.
+
 ## Roles de herramientas
 | Herramienta | Hace | No hace |
 |---|---|---|
@@ -75,7 +82,7 @@ Regla de revisión: revisa Gemini CLI. Si Gemini fue quien ejecutó (caso raro),
 
 ## Estado actual
 - **Última actualización:** 2026-11-07
-- **Hecho:** repo y brief iniciales; spec 001 implementada en la rama `spec/001-migrar-portada` (portada, privacidad, firmas, Worker, pruebas y dry-run configurado).
-- **En curso:** verificación de la spec 001 pendiente de ejecutar en un checkout con Node, npm y Wrangler instalables; no hubo deploy.
-- **Siguiente:** `npm ci && npm test && npm run deploy:check`, revisión del diff y posterior aprobación de JV antes de cualquier despliegue.
+- **Hecho:** spec 001 fusionada y desplegada (portada en `/academia`, `/privacidad`, `/firma/`, Worker). Spec 002: principios de trabajo (Karpathy) añadidos a este archivo.
+- **En curso:** revisión de la spec 002; rediseño del sitio (Stitch no convenció): faltan referencias de JV y decidir la fuente de diseño que sustituye a Stitch (afecta a la regla 9).
+- **Siguiente:** spec 003 de contenido y diseño de la home de la agencia.
 - **Bloqueos / decisiones pendientes:** cliente objetivo y 3 servicios principales; precios "desde" publicados o no; permiso para mostrar SE Alquileres y Grupo Kuwago como casos; misión y visión.
