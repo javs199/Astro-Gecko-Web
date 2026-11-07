@@ -34,7 +34,10 @@
 public/       lo que se publica: academia/, privacidad.html, firma/, sw.js (y luego las páginas de la agencia)
 src/          worker.mjs
 tests/        node --test
-design/       referencia visual exportada de Google Stitch (ver design/LEEME.md)
+design/       referencias visuales (sitios que gustan, capturas de revisión; ver design/LEEME.md)
+DESIGN.md     sistema de diseño del sitio (lo crea y mantiene Impeccable)
+PRODUCT.md    contexto de producto para el diseño (lo crea Impeccable)
+.claude/ .agents/ .gemini/ .agent/   skills de diseño: impeccable (todas las herramientas) y stop-slop-es (copy)
 specs/        una spec por tarea (ver specs/_plantilla.md)
 ```
 
@@ -46,8 +49,10 @@ specs/        una spec por tarea (ver specs/_plantilla.md)
 - **Contratación extra:** ninguna. Analítica prevista: Cloudflare Web Analytics (gratis, sin cookies).
 
 ## Diseño
-- La **referencia visual es `design/`**: pantallas exportadas de Google Stitch (captura PNG + HTML opcional por pantalla).
-- El HTML de Stitch es **referencia, no código de producción**: replica layout, espaciado y jerarquía en HTML/CSS plano; no importes Tailwind.
+- **Fuente de diseño: `DESIGN.md` + `PRODUCT.md`**, generados con la skill **Impeccable** (`/impeccable init`, `/impeccable document`). Stitch ya no es la fuente de diseño.
+- **Herramientas:** `/impeccable` para crear y afinar (`shape`, `critique`, `audit`, `polish`, `bolder`, `quieter`…) y su detector de patrones genéricos de IA (`npx impeccable detect`); la skill `stop-slop-es` para todo el copy. Codex, Gemini CLI y Antigravity tienen su copia de Impeccable en `.agents/`, `.gemini/` y `.agent/`; para el copy, lean `.claude/skills/stop-slop-es/SKILL.md`.
+- La marca manda sobre la herramienta: Impeccable debe respetar la paleta y las fuentes de abajo; si propone otras, gana el brand kit.
+- Nada de Tailwind ni frameworks: HTML/CSS plano.
 - **Marca: brand kit 1** (Identidad Visual/Sistema_Identidad_AstroGecko, `09_Color/tokens.css`). Navy `#0F1322` de base; **acento de la agencia = tangerine** (el violeta `#8E6CFF` es de la academia).
 - **Tipografía:** JetBrains Mono en títulos, wordmark y números; Satoshi en texto; Geist Pixel solo para usos pixel-art. Fallbacks `Consolas,monospace` y `Segoe UI,system-ui,sans-serif`.
 
@@ -60,7 +65,7 @@ specs/        una spec por tarea (ver specs/_plantilla.md)
 6. Trabaja en una rama `spec/NNN-nombre`, nunca directo en `main`.
 7. **Privacidad:** este sitio nunca enlaza ni incluye catálogo, datos o rutas privadas de la academia; el único enlace a la academia privada es el botón "Iniciar sesión" a `https://app.astrogecko.com/`.
 8. **`/privacidad` no cambia de URL**: es la política que Google Auth Platform tiene registrada para la app de la academia.
-9. Toda spec de UI referencia su pantalla en `design/`. Sin pantalla, no se implementa UI nueva.
+9. Toda spec de UI referencia `DESIGN.md` (y la sección o pantalla concreta). Sin `DESIGN.md`, no se implementa UI nueva. Antes de entregar UI: `/impeccable critique` o `audit` y capturas a 1440 y 390 px.
 10. Si algo es ambiguo, elige la lectura más probable y anótala en la spec bajo "Decisiones".
 
 ## Principios de trabajo
@@ -68,7 +73,7 @@ Adaptados de [karpathy-guidelines](https://github.com/multica-ai/andrej-karpathy
 1. **Piensa antes de programar.** Escribe tus supuestos. Si existe una vía más simple, dilo. Si algo no está claro, nómbralo; si aun así es ambiguo, aplica la regla 10 y anota en la spec la alternativa descartada.
 2. **Simplicidad primero.** El mínimo código que cumple la spec. Sin funciones, abstracciones ni "configurabilidad" que nadie pidió. Si 200 líneas pueden ser 50, reescribe.
 3. **Cambios quirúrgicos.** Cada línea cambiada debe responder a la spec. No "mejores" código, comentarios ni formato vecinos; respeta el estilo existente. Si ves código muerto ajeno, menciónalo, no lo borres. Sí elimina lo que tu propio cambio dejó sin uso.
-4. **Criterios verificables.** Convierte la tarea en comprobaciones (prueba que falla y luego pasa, captura que coincide con `design/`). En tareas de varios pasos, escribe el plan como `paso → verificación` y no des por terminado hasta comprobarlo.
+4. **Criterios verificables.** Convierte la tarea en comprobaciones (prueba que falla y luego pasa, `/impeccable audit` sin hallazgos P0/P1 y capturas revisadas). En tareas de varios pasos, escribe el plan como `paso → verificación` y no des por terminado hasta comprobarlo.
 
 ## Roles de herramientas
 | Herramienta | Hace | No hace |
@@ -82,7 +87,7 @@ Regla de revisión: revisa Gemini CLI. Si Gemini fue quien ejecutó (caso raro),
 
 ## Estado actual
 - **Última actualización:** 2026-11-07
-- **Hecho:** spec 001 fusionada y desplegada (portada en `/academia`, `/privacidad`, `/firma/`, Worker). Spec 002: principios de trabajo (Karpathy) añadidos a este archivo.
-- **En curso:** revisión de la spec 002; rediseño del sitio (Stitch no convenció): faltan referencias de JV y decidir la fuente de diseño que sustituye a Stitch (afecta a la regla 9).
-- **Siguiente:** spec 003 de contenido y diseño de la home de la agencia.
+- **Hecho:** spec 001 desplegada; spec 002 (principios Karpathy) fusionada; spec 003: Impeccable y stop-slop-es instalados, regla 9 pasa de Stitch a `DESIGN.md`.
+- **En curso:** revisión de la spec 003.
+- **Siguiente:** `/impeccable init` con JV (PRODUCT.md + DESIGN.md con el brand kit) y spec 004 de contenido y diseño de la home de la agencia.
 - **Bloqueos / decisiones pendientes:** cliente objetivo y 3 servicios principales; precios "desde" publicados o no; permiso para mostrar SE Alquileres y Grupo Kuwago como casos; misión y visión.

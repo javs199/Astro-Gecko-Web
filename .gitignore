@@ -2,3 +2,6 @@ node_modules/
 .wrangler/
 .dev.vars
 .env
+
+# Motor de Impeccable: se descarga y verifica en el primer uso (spec 003)
+*/skills/impeccable/scripts/bin/

@@ -1,18 +1,14 @@
-# design/ — referencia visual (Google Stitch)
+# design/ — referencias visuales
 
-Una carpeta por pantalla, numerada en el orden del flujo del usuario:
+Desde la spec 003, la **fuente de diseño es `DESIGN.md`** (raíz del repo), creado y mantenido con la skill Impeccable. Esta carpeta guarda material de apoyo:
 
 ```
 design/
-  01-inicio/
-    captura.png      ← export de imagen de Stitch (obligatoria)
-    codigo.html      ← "Export code" de Stitch (HTML + Tailwind), opcional
-    notas.md         ← opcional: estados, interacciones, qué NO es definitivo
-  02-catalogo/
-  ...
+  referencias/       capturas de sitios que le gustan a JV, con una línea de qué tomar de cada uno
+  revisiones/        capturas de revisión (1440 y 390 px) que acompañan una spec de UI
 ```
 
 Reglas:
-- La captura manda; el HTML de Stitch es pista de estructura, no código de producción.
-- Si rediseñas una pantalla, reemplaza sus archivos (git guarda la versión anterior) y avisa en la spec afectada.
-- Las fuentes y colores de la marca del proyecto (los del cliente, en sus tokens) ganan sobre lo que haya puesto Stitch.
+- `DESIGN.md` manda; una referencia inspira, no se copia.
+- Las fuentes y colores del brand kit ganan sobre cualquier referencia o sugerencia de la herramienta.
+- Si una revisión sustituye capturas anteriores, reemplaza los archivos (git guarda la versión previa).
