@@ -75,7 +75,7 @@ Regla de revisión: revisa Gemini CLI. Si Gemini fue quien ejecutó (caso raro),
 
 ## Estado actual
 - **Última actualización:** 2026-11-07
-- **Hecho:** repo creado desde la plantilla de IA; brief v0.1 del sitio; decidido que la portada de la academia va en `/academia`.
-- **En curso:** spec 001 (mover aquí la portada pública, `/privacidad` y `/firma/`).
-- **Siguiente:** textos del sitio de la agencia (spec 002), pantallas en Stitch, UI (spec 003).
+- **Hecho:** repo y brief iniciales; spec 001 implementada en la rama `spec/001-migrar-portada` (portada, privacidad, firmas, Worker, pruebas y dry-run configurado).
+- **En curso:** verificación de la spec 001 pendiente de ejecutar en un checkout con Node, npm y Wrangler instalables; no hubo deploy.
+- **Siguiente:** `npm ci && npm test && npm run deploy:check`, revisión del diff y posterior aprobación de JV antes de cualquier despliegue.
 - **Bloqueos / decisiones pendientes:** cliente objetivo y 3 servicios principales; precios "desde" publicados o no; permiso para mostrar SE Alquileres y Grupo Kuwago como casos; misión y visión.
